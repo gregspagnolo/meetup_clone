@@ -1,0 +1,11 @@
+<fieldset>	
+	<legend>Edit Event:</legend>
+	<form action="/events/<%= @event.id %>" method="post">
+		<input type='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'>
+		<input type="hidden" name="_method" value="patch">
+		<p>Name: <input type="text" name="event[name]" value="<%= @event.name %>"></p>
+		<p>Date: <input type="text" id="datepicker" name="event[date]" value="<%= @event.date %>"></p>
+		<p></p>
+		<input type="submit" value="Update Event">
+	</form>
+</fieldset>

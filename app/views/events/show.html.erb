@@ -1,0 +1,28 @@
+<a href="/events">Events Dashboard</a>
+<h4><%= @event.name %></h4>
+<p>Host: <%= @event.user.first_name %> <%= @event.user.last_name %></p>
+<p>Date: <%= @event.date %></p>
+<p>Date: <%= @event.city %>, <%= @event.state %></p>
+<p>People who are joining the event: </p>
+<%= @event.users_joined.count %>
+
+	<table border="1">
+	<tr>
+		<th>Name</th>
+		<th>Location</th>
+		<th>State</th>
+	</tr>
+	<tr>
+		<% @event.users_joined.each do |u| %>
+		<td><%= u.first_name.capitalize + " " + u.last_name.capitalize %></td>
+		<td><%= u.city %></td>
+		<td><%= u.state %></td>
+	</tr>
+	<% end %>
+	</table>
+
+	<% @comment.each do |c| %>
+	<p><%= c.user.first_name %> says: <%= c.content %></p>
+	<% end %>
+
+<form action="/comment" method="post">
