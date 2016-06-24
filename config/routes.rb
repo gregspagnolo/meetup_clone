@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   get '/events/join/:id' => 'events#join'
   get '/events/cancel/:id' => 'events#cancel_join'
   get '/events/:id' => 'events#show'
+
+  post '/comments' => 'comments#create'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

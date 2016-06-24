@@ -23,6 +23,15 @@
 
 	<% @comment.each do |c| %>
 	<p><%= c.user.first_name %> says: <%= c.content %></p>
-	<% end %>
+		<% end %>
+	
 
-<form action="/comment" method="post">
+<form action="/comments" method="post">
+		<input type='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'>
+		<input type='hidden' name='event_id' value='<%= @event.id %>'>
+		<fieldset>
+			<legend>Add Comment:</legend>
+			<p><textarea name="comment[content]"></textarea></p>
+			<input type="submit" value="Add Comment">
+		</fieldset>
+</form>
